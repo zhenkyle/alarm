@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <title>Stay-focused App</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="js/mobiscroll.core.js"></script>
+    <script type="text/javascript" src="js/mobiscroll.datetime.js"></script>
+    <script type="text/javascript" src="js/jquery.inlineedit.js"></script>
+    <script type="text/javascript" src="js/pubsub.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </head>
+  <body>
+    <div id="preferences">
+      <h2>Preferences</h2>
+      <ul id="settings_list">
+        <li>
+          <strong>Project Name</strong>
+          <input id="set_project_name" type="text">
+        </li>
+        <li>
+          <strong>Deadline</strong>
+          <input id="set_deadline" type="text">
+        </li>
+        <li>
+          <strong>Date Format*</strong>
+          <input id="us" class="radio" type="radio" name="date_format">
+          <label class="option" for="us">US</label>
+          <input id="uk" class="radio" type="radio" name="date_format">
+          <label class="option" for="uk">UK</label>
+        </li>
+        <li>
+          <strong>Time Format*</strong>
+          <input id="hrs_12" class="radio" type="radio" name="time_format">
+          <label class="option" for="hrs_12">12 Hrs</label>
+          <input id="hrs_24" class="radio" type="radio" name="time_format">
+          <label class="option" for="hrs_24">24 Hrs</label>
+        </li>
+        <li>
+          <strong>Clock Tick</strong>
+          <input id="clock_tick_on" class="radio" type="radio" name="clock_tick">
+          <label class="option" for="clock_tick_on">On</label>
+          <input id="clock_tick_off" class="radio" type="radio" name="clock_tick">
+          <label class="option" for="clock_tick_off">Off</label>
+        </li>
+        <li>
+          <strong>Voice Notice</strong>
+          <input id="voice_on" class="radio" type="radio" name="voice_notice">
+          <label class="option" for="voice_on">On</label>
+          <input id="voice_off" class="radio" type="radio" name="voice_notice">
+          <label class="option" for="voice_off">Off</label>
+        </li>
+        <li>
+          <strong>Metronome</strong>
+          <input id="metronome_1" class="radio" type="radio" name="metronome">
+          <label class="option" for="metronome_1">1 Mins</label>
+          <input id="metronome_3" class="radio" type="radio" name="metronome">
+          <label class="option" for="metronome_3">3 Mins</label>
+          <input id="metronome_0" class="radio" type="radio" name="metronome">
+          <label class="option" for="metronome_0">Off</label>
+        </li>
+        <li>
+          <strong>Restore</strong>
+          <button id="clear">Clear All Data</button>
+        </li>
+      </ul>
+      <div id="notice">* Will take effect when you restart this app.</div>
+    </div>
+
+    <div id="project">
+      <div id="project_slider">
+        <div id="show_project_name"></div>
+        <div id="show_deadline"></div>
+      </div>
+      <div id="progress_bar"></div>
+    </div>
+
+    <div id="timer">
+      <div id="screen">00:00</div>
+    </div>
+
+    <div id="controller">
+      <form id="controller_form" action="javascript:">
+        <input id="set_time" type="text" value="25" maxlength="2">
+        <button id="start" type="submit">Start</button>
+        <button id="pause">Pause</button>
+        <button id="resume">Resume</button>
+        <button id="reset">Reset</button>
+      </form>
+    </div>
+
+    <div id="task_list"></div>
+
+    <div id="add_entry">
+      <form id="add_entry_form">
+        <input id="set_task" type="text" placeholder="Enter a new task.">
+        <button id="add" type="submit">Add</button>
+      </form>
+    </div>
+
+    <audio id="metronome" preload="auto">
+      <source src="audio/metronome.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="time_up" preload="auto">
+      <source src="audio/cuckoo_clock.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="clock_tick" preload="auto" loop>
+      <source src="audio/clock_tick.mp3" type="audio/mp3" />
+    </audio>
+
+    <div id="version" style="display:none">1.0.2</div>
+  </body>
+</html>
